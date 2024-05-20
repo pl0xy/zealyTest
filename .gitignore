@@ -1,0 +1,20 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+# Workaround to have esmodules in serverless
+serverless.js
+
+# esbuild directories
+.esbuild
+
+# dynamoDB local
+.dynamodb
+
+# quokka scratchpad
+scratch.ts
+
+# local env variables
+.env
