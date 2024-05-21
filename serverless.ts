@@ -1,6 +1,5 @@
 import type { AWS } from '@serverless/typescript';
-import { getBot } from './src/functions/bot';
-import { createTheme, getTheme, getThemes } from './src/functions/theme';
+import { claimQuest } from './src/functions/quest';
 
 export const serverlessConfiguration: AWS = {
   service: 'lfg-serverless-test',
@@ -20,23 +19,10 @@ export const serverlessConfiguration: AWS = {
       TABLE_NAME: '${self:resources.Resources.LFGTable.Properties.TableName}',
       PINO_LOG_LEVEL: 'trace',
     },
-    httpApi: {
-      authorizers: {
-        jwtAuthorizer: {
-          identitySource: '$request.header.Authorization',
-          issuerUrl: 'https://quick-rodent-34.clerk.accounts.dev',
-          audience: ['test'],
-        },
-      },
-    },
   },
   // NOTE: the configuration for each handler is stored in the handler's parent index.ts file
   functions: {
-    getBot,
-    createTheme,
-    getTheme,
-    getThemes,
-    // updateTheme,
+    claimQuest,
   },
   package: { individually: true },
   custom: {
@@ -56,7 +42,7 @@ export const serverlessConfiguration: AWS = {
         docker: false,
         migrate: true, // create tables if not exist
         inMemory: false,
-        dbPath: './.dynamodb'
+        dbPath: './.dynamodb',
       },
     },
     'serverless-offline': {
@@ -65,11 +51,10 @@ export const serverlessConfiguration: AWS = {
   },
   resources: {
     Resources: {
-      // TODO: Make s3 bucket for storing images and other assets.
       LFGTable: {
         Type: 'AWS::DynamoDB::Table',
         Properties: {
-          TableName: 'LFGTable',
+          TableName: 'ZealyTable',
           BillingMode: 'PROVISIONED',
           ProvisionedThroughput: {
             // Free tier capacity for DynamoDB is 25

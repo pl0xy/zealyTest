@@ -6,7 +6,6 @@ import type {
 } from 'aws-lambda';
 import { ZodTypeAny, ZodVoid, z } from 'zod';
 
-
 interface UserInfo {
   username: string;
   userId: string;
@@ -15,17 +14,17 @@ interface UserInfo {
 export interface APIGatewayProxyEventV2WithJWTAuthorizedUser extends APIGatewayProxyEventV2WithJWTAuthorizer {
   requestContext: APIGatewayProxyEventV2WithJWTAuthorizer['requestContext'] & {
     authorizer: {
-      jwt: APIGatewayProxyEventV2WithJWTAuthorizer['requestContext']['authorizer']['jwt'] & UserInfo
-    }
+      jwt: APIGatewayProxyEventV2WithJWTAuthorizer['requestContext']['authorizer']['jwt'] & UserInfo;
+    };
   };
 }
 
 // NOTE: This type has JWT Authorizer
 // TODO: Add more types for public handlers
-export type ValidatedAPIGatewayProxyEvent<TEvent extends APIGatewayProxyEventV2, TBody extends ZodTypeAny = ZodVoid> = Omit<
-  TEvent,
-  'body'
-> & {
+export type ValidatedAPIGatewayProxyEvent<
+  TEvent extends APIGatewayProxyEventV2,
+  TBody extends ZodTypeAny = ZodVoid,
+> = Omit<TEvent, 'body'> & {
   body: z.infer<TBody>;
 };
 

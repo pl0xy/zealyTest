@@ -4,7 +4,6 @@ import httpHeaderNormalizer from '@middy/http-header-normalizer';
 import middyJsonBodyParser from '@middy/http-json-body-parser';
 import inputOutputLogger from '@middy/input-output-logger';
 import { ZodSchema } from 'zod';
-import { handleUserContext } from './handleUserContext';
 import { log } from './log';
 import { zodValidator } from './zodValidator';
 
@@ -16,7 +15,6 @@ export function middyfy(handler: any, schema?: ZodSchema): MiddyfiedHandler {
     .use(inputOutputLogger({ logger: (message): void => log.trace(message) }))
     .use(httpErrorHandler({ logger: (error): void => log.error(error) }))
     .use(httpHeaderNormalizer({ defaultHeaders: { 'Content-Type': 'application/json' } }))
-    .use(handleUserContext());
 
   if (schema) {
     middyStack.use(middyJsonBodyParser({ disableContentTypeError: false })).use(zodValidator(schema));
