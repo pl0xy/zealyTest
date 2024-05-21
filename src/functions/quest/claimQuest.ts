@@ -3,12 +3,12 @@
 import { generateApiResponse, isAPIGatewayProxyResultV2 } from '@libs/generateApiResponse';
 import { HTTPStatusCode } from '@libs/httpStatusCodes';
 // import { log } from '@libs/log';
+import { ConditionalCheckFailedException } from '@aws-sdk/client-dynamodb';
 import { Quest } from '@db/db';
 import { middyfy } from '@libs/middyfy';
 import { ValidatedEventAPIGatewayProxyHandler as ValidEvent } from '@libs/validatedHandler';
 import createHttpError from 'http-errors';
 import { ClaimQuestZod } from './types';
-import { ConditionalCheckFailedException } from '@aws-sdk/client-dynamodb';
 
 const { TABLE_NAME } = process.env;
 
@@ -112,6 +112,7 @@ export const claimQuestHandler: ValidEvent<typeof ClaimQuestZod> = async (event)
     .catch((error) => {
       if (error instanceof ConditionalCheckFailedException)
         return generateApiResponse({ status: 'fail', message: 'Quest already claimed' }, HTTPStatusCode.BAD_REQUEST);
+      return generateApiResponse(error as Error, HTTPStatusCode.INTERNAL_SERVER_ERROR);
     });
 };
 
