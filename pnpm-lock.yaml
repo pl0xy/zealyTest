@@ -34,7 +34,7 @@ importers:
         version: 5.3.2
       dynamodb-toolbox:
         specifier: ^0.9.3
-        version: 0.9.3(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))(@aws-sdk/lib-dynamodb@3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0))))
+        version: 0.9.5(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))(@aws-sdk/lib-dynamodb@3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0))))
       http-errors:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1691,8 +1691,8 @@ packages:
     resolution: {integrity: sha512-Ozt9+68Q/oAwd01hwQ7aV9OA7NwHXAnv0Dw65XBMH0V4BpFz0WXdCVLo76U7x2izF1Ke3X96p1KhWnneGTlOBA==}
     hasBin: true
 
-  dynamodb-toolbox@0.9.3:
-    resolution: {integrity: sha512-K3HeWQEU3DOWiGrKVUqe7qwV5R66LYwcIo4KuYczGNhXPpTLJlY1GSbhIizM1gjGifOOJqmvrPtQHm+xoH23XA==}
+  dynamodb-toolbox@0.9.5:
+    resolution: {integrity: sha512-Zckk2fKZoH5nKdxxB0vWuxSfS8pG4ofojKq2seNu1oFSSyndpvOTcACWalWIYl7h6WZ6prgJnFH/SglskQ+iYA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@aws-sdk/client-dynamodb': ^3.0.0
@@ -6180,7 +6180,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  dynamodb-toolbox@0.9.3(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))(@aws-sdk/lib-dynamodb@3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))):
+  dynamodb-toolbox@0.9.5(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))(@aws-sdk/lib-dynamodb@3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))):
     dependencies:
       '@aws-sdk/client-dynamodb': 3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0))
       '@aws-sdk/lib-dynamodb': 3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))
