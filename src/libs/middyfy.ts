@@ -14,7 +14,7 @@ export function middyfy(handler: any, schema?: ZodSchema): MiddyfiedHandler {
   const middyStack: MiddyfiedHandler = middy(handler)
     .use(inputOutputLogger({ logger: (message): void => log.trace(message) }))
     .use(httpErrorHandler({ logger: (error): void => log.error(error) }))
-    .use(httpHeaderNormalizer({ defaultHeaders: { 'Content-Type': 'application/json' } }))
+    .use(httpHeaderNormalizer({ defaultHeaders: { 'Content-Type': 'application/json' } }));
 
   if (schema) {
     middyStack.use(middyJsonBodyParser({ disableContentTypeError: false })).use(zodValidator(schema));

@@ -16,3 +16,6 @@
 
 I never had enough time to implement automated testing for the handler but the next steps would be to export the handler without the middy middlewares and use jest to test different `access_conditions` and `submission_text`s mirroring the testing i did manually while developing.
 
+## Note on dynamoDB ##
+
+DynamoDB local persists the database to `.dynamodb/shared-local-instance.db` between executions.
