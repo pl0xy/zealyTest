@@ -1,6 +1,6 @@
 # Zealy Code test #
 
-> This project is based on a personal prject starter that i have developed and uses the serverless framework and dynamodb, please make sure you have this installed globally `pnpm add -g serverless`
+> This project is based on a personal project starter that i have developed and uses the serverless framework and dynamodb, please make sure you have this installed globally `pnpm add -g serverless`
 
 ## How to run ##
 
