@@ -1,10 +1,7 @@
-// import { ConditionalCheckFailedException } from '@aws-sdk/client-dynamodb';
-// import { Quest } from '@db';
-import { generateApiResponse, isAPIGatewayProxyResultV2 } from '@libs/generateApiResponse';
-import { HTTPStatusCode } from '@libs/httpStatusCodes';
-// import { log } from '@libs/log';
 import { ConditionalCheckFailedException } from '@aws-sdk/client-dynamodb';
 import { Quest } from '@db/db';
+import { generateApiResponse, isAPIGatewayProxyResultV2 } from '@libs/generateApiResponse';
+import { HTTPStatusCode } from '@libs/httpStatusCodes';
 import { middyfy } from '@libs/middyfy';
 import { ValidatedEventAPIGatewayProxyHandler as ValidEvent } from '@libs/validatedHandler';
 import createHttpError from 'http-errors';
@@ -13,7 +10,7 @@ import { ClaimQuestZod } from './types';
 const { TABLE_NAME } = process.env;
 
 const happyWords: string[] = ['joyful', 'happy', 'vibrant', 'thrilled', 'euphoric', 'cheerful', 'delighted'];
-const lightHeartedProfanity = [
+const lightHeartedProfanity: string[] = [
   'silly',
   'goose',
   'darn',
@@ -37,7 +34,7 @@ const lightHeartedProfanity = [
   'drat',
 ];
 const punctuationRegex = /[,.?!]/;
-const repetitiveSequenceRegex = /^(\w+)\1$/;
+const repetitiveSequenceRegex = /^(\w+)\1\W*$/; // allow for punctuation characters at the end of the word (single full stops, or ellipses... etc.)
 
 export const claimQuestHandler: ValidEvent<typeof ClaimQuestZod> = async (event) => {
   if (!TABLE_NAME) throw new createHttpError.InternalServerError('Table name is not defined');
@@ -85,16 +82,19 @@ export const claimQuestHandler: ValidEvent<typeof ClaimQuestZod> = async (event)
   });
   if (score > 3) score = 3; // Cap score at 3 for Happy Words
   if (punctuationRegex.test(event.body.submission_text)) score++;
+  // Break the string into words and check for repetitive sequences within those words
   for (const word of event.body.submission_text.split(' ')) {
     if (repetitiveSequenceRegex.test(word)) {
       score += 2;
       break;
     }
   }
+  // Check for light-hearted profanity last so if there is some we can just set score to zero
   lightHeartedProfanity.forEach((word) => {
     if (event.body.submission_text.toLowerCase().includes(word)) score = 0;
   });
 
+  // Put the quest into the database, if it already exists, return a 400
   return Quest.put(
     {
       quest: event.body.questId,
@@ -112,7 +112,7 @@ export const claimQuestHandler: ValidEvent<typeof ClaimQuestZod> = async (event)
     .catch((error) => {
       if (error instanceof ConditionalCheckFailedException)
         return generateApiResponse({ status: 'fail', message: 'Quest already claimed' }, HTTPStatusCode.BAD_REQUEST);
-      return generateApiResponse(error as Error, HTTPStatusCode.INTERNAL_SERVER_ERROR);
+      return generateApiResponse({ message: 'Error processing claim' }, HTTPStatusCode.INTERNAL_SERVER_ERROR);
     });
 };
 
