@@ -16,22 +16,22 @@ importers:
         version: 3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))
       '@middy/core':
         specifier: ^5.0.0
-        version: 5.3.2
+        version: 5.3.5
       '@middy/error-logger':
         specifier: ^5.3.2
-        version: 5.3.2
+        version: 5.3.5
       '@middy/http-error-handler':
         specifier: ^5.3.2
-        version: 5.3.2
+        version: 5.3.5
       '@middy/http-header-normalizer':
         specifier: ^5.3.2
-        version: 5.3.2
+        version: 5.3.5
       '@middy/http-json-body-parser':
         specifier: ^5.0.0
-        version: 5.3.2
+        version: 5.3.5
       '@middy/input-output-logger':
         specifier: ^5.3.2
-        version: 5.3.2
+        version: 5.3.5
       dynamodb-toolbox:
         specifier: ^0.9.3
         version: 0.9.3(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0)))(@aws-sdk/lib-dynamodb@3.567.0(@aws-sdk/client-dynamodb@3.567.0(@aws-sdk/client-sso-oidc@3.564.0(@aws-sdk/credential-provider-node@3.556.0))(@aws-sdk/client-sts@3.556.0(@aws-sdk/credential-provider-node@3.556.0))))
@@ -711,32 +711,32 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@middy/core@5.3.2':
-    resolution: {integrity: sha512-g1PonDsJI/t6DldRD/MijnE9kQBWYDZRfGkqJv/Dy+TXyTJmsmk6k/znx+RgqZYlpz1QodWi+6gzRsjPuvM8ew==}
+  '@middy/core@5.3.5':
+    resolution: {integrity: sha512-kMjnRPC30KA52fR/Vb9sBOqYNCvOPwo0hKMtKZ9QfjB+hnaSg0y+hTTX6EArJm+6iFd+0Y6tEwT//qXpCvhTMQ==}
     engines: {node: '>=18'}
 
-  '@middy/error-logger@5.3.2':
-    resolution: {integrity: sha512-hLG9qa091l+Y/3r1iI+2NPAZrTohaoCB593pIAR57Dh+Qpzhbp/SxABry7uLuiY277i4CRBoX9hmDGevF1OTww==}
+  '@middy/error-logger@5.3.5':
+    resolution: {integrity: sha512-2PiyDdOT4T9uQNRHU9cfyRbdTXercWZTvljMHCq1RnHEyLN1NwhT1/h7t/VdhEiZ/RYqq358QVgUvBDHAE0CXw==}
     engines: {node: '>=18'}
 
-  '@middy/http-error-handler@5.3.2':
-    resolution: {integrity: sha512-GJIT3K2uHsVcJiitbzMAS3VqD6wULs6aRyVpOJXypvjXnnjRBmIr7NaiyX7UDd0Ak+bOZbIEbaWylcWVKVCNfg==}
+  '@middy/http-error-handler@5.3.5':
+    resolution: {integrity: sha512-FFUfpEJqgjgNN5cnmXgWBT66dAw6EZGAp4R4TGoOBs80p+EGsnajFCNzbZyN3PprWAi59KvswZxE4Fqo8gnStQ==}
     engines: {node: '>=18'}
 
-  '@middy/http-header-normalizer@5.3.2':
-    resolution: {integrity: sha512-OHEHoU5C8xmm+IBBAO76KOnKfJ3cocj1DEPK7FuQZPSW/wUrrL2UUbZ2LGbysxHcicTyLoHtwea+/O87GohaeA==}
+  '@middy/http-header-normalizer@5.3.5':
+    resolution: {integrity: sha512-4tz/SBKJeHdixCJFSRNIiiDcRP22r1D0J52rHIAc6rFwNDLRUSe0lbUwOOWM9xbg3g7/8JDQASyDEGsrwsPfCg==}
     engines: {node: '>=18'}
 
-  '@middy/http-json-body-parser@5.3.2':
-    resolution: {integrity: sha512-fReh7E7+uIzVa4meO3IDQQ2plzpFjwYxToRaoUGQNZCL8zFI+pn00hIVsmmSJB0V3lW8HEoh8SJgwlnbbIAvUA==}
+  '@middy/http-json-body-parser@5.3.5':
+    resolution: {integrity: sha512-YJUJ820Wu6Vh4OIe2zoI6HfTThGx7Gz+2k1ahlScHOuTCw2kLegRixzQbpCadpuKA8HB+Y3em1ZCXIJ/3FZf+g==}
     engines: {node: '>=18'}
 
-  '@middy/input-output-logger@5.3.2':
-    resolution: {integrity: sha512-361vbp8JUmvpAtFKWUPt/KzTOXK5/TdIS8ShgZ12lCeI8CVLpxR+WvkrFbDb8SSaSt8CWnvMlqJHmdH6l4Yl3w==}
+  '@middy/input-output-logger@5.3.5':
+    resolution: {integrity: sha512-MG9k06gNssjqN/fMp42lNytBvStqp9i0w0aGADMuX+h+q3nFoozfcagq1OI8n774C/JX4acjNWvinKBV6bbLJw==}
     engines: {node: '>=18'}
 
-  '@middy/util@5.3.2':
-    resolution: {integrity: sha512-/Y5xxPwkQAigphYmJhThN6TGQCCFgybOYYK7SfiEr8cY7IhYnTys2uyTJR7ziS5jP82zNlgE9H5ZEj6IswHOKQ==}
+  '@middy/util@5.3.5':
+    resolution: {integrity: sha512-Q/MGVlW3MzrzqwjTkoIuRR1WRK1X8+4AP7zuY7QjTYAkrWE+llQ4v8Mry8NBYqQTzGNjrMDuGEwV/Ur1N2sqiQ==}
     engines: {node: '>=18'}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -4922,25 +4922,25 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@middy/core@5.3.2':
+  '@middy/core@5.3.5':
     dependencies:
       '@datastream/core': 0.0.35
 
-  '@middy/error-logger@5.3.2': {}
+  '@middy/error-logger@5.3.5': {}
 
-  '@middy/http-error-handler@5.3.2':
+  '@middy/http-error-handler@5.3.5':
     dependencies:
-      '@middy/util': 5.3.2
+      '@middy/util': 5.3.5
 
-  '@middy/http-header-normalizer@5.3.2': {}
+  '@middy/http-header-normalizer@5.3.5': {}
 
-  '@middy/http-json-body-parser@5.3.2':
+  '@middy/http-json-body-parser@5.3.5':
     dependencies:
-      '@middy/util': 5.3.2
+      '@middy/util': 5.3.5
 
-  '@middy/input-output-logger@5.3.2': {}
+  '@middy/input-output-logger@5.3.5': {}
 
-  '@middy/util@5.3.2': {}
+  '@middy/util@5.3.5': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
